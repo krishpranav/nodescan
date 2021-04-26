@@ -1,0 +1,38 @@
+
+{
+	"name": "krishpranav",
+	"version": "0.7.1",
+	"description": "A web based network scanner made in javascript",
+	"bin": {
+		"nodescan": "./bin/server.js"
+	},
+	"main": "bin/server.js",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 0",
+		"debug": "sudo DEBUG=* ./bin/server.js -d en0",
+		"start": "sudo ./bin/server.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/krishpranav/nodescan.git"
+	},
+	"keywords": [
+		"arp-scan",
+		"network",
+		"scanner",
+		"nmap",
+		"mapper"
+	],
+	"author": "Kevin J. Walchko",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/krishpranav/nodescan/issues"
+	},
+	"homepage": "https://github.com/krishpranav/nodescan#readme",
+	"dependencies": {
+		"commander": "^2.9.0",
+		"debug": "^2.2.0",
+		"http": "0.0.0",
+		"request": "^2.67.0"
+	}
+}
