@@ -32,3 +32,28 @@ program
 	.parse(process.argv);
 
 console.log('Starting nodescan on interface: '+program.dev+' every '+program.update);
+
+var options = {'dev': program.dev};
+var scan = [];
+
+var saveFile = program.loc+'network_db.json'
+
+function mapNetwork(){
+    debug('network scan started...')
+    arpscan(options).then(function(response){
+        scan = response;
+        debug('Scan done: '+scan.length+' hosts found');
+        db.update( scan );
+        db.write(saveFile);
+    });
+}
+
+var hostinfo = localhostInfo();
+
+db.read(saveFile);
+db.push( hostinfo );
+
+setInterval(function(){
+    mapNetwork();
+}, program.update*1000);
+
